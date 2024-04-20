@@ -1,11 +1,11 @@
-# Single Responsibility User Story
+# Single Responsibility Principle
 In this example we are creating a backend example service for a companies house. To demonstrate 
-the difference in code with & without the user of Single Responsibility Principle.
+the difference in code with & without utilising of Single Responsibility Principle.
 
 
 ## Overview
 As part of public API offered to our client, we require to create a new endpoint to 
-display partial information about any registered company in our database. New endpoint 
+display a list of companies matching any registered company in our database. New endpoint 
 is divided into two tasks:
  * New RESTful API endpoint `/v1/company` with `GET` method
  * __Service to be injected inside the endpoint to service the information__
@@ -26,6 +26,6 @@ will later be injected inside the new endpoint
 
 
 ##### Credits
-Copyright &copy 2024, Syniol Limited. All rights reserved.
+Copyright &copy; 2024, Syniol Limited. All rights reserved.
 
 Author: [Hadi Tajallaei](mailto:hadi@syniol.com)
