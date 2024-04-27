@@ -1,18 +1,20 @@
 package before
 
 import (
+	"database/sql"
 	"errors"
-	"fmt"
 	"regexp"
 	"unicode/utf8"
 )
 
 type Company struct {
 	// todo: SQL lib
-	dbClient any
+	dbClient *sql.DB
 }
 
-func (c Company) FindCompanyWithName(
+// FindCompanyWithName passes a lock by the value: type 'Company' contains 'sql.DB'
+// contains 'atomic.Int64' contains 'interface{}' which is 'sync.Locker'
+func (c *Company) FindCompanyWithName(
 	name string,
 ) ([]string, error) {
 	if utf8.RuneCountInString(name) == 0 {
@@ -27,8 +29,16 @@ func (c Company) FindCompanyWithName(
 		return nil, errors.New("company name should be only English alphabets Aa-Zz")
 	}
 
-	c.dbClient(fmt.Sprintf("SELECT name FROM companies WHERE name LIKE '%%s%'", name))
-	// todo: return names as slice
+	res, err := c.dbClient.Query("SELECT name FROM companies WHERE name LIKE '?%'", name)
+	if err != nil {
+		return nil, err
+	}
 
-	return nil, nil
+	var companyNames []string
+	err = res.Scan(&companyNames)
+	if err != nil {
+		return nil, err
+	}
+
+	return companyNames, nil
 }
