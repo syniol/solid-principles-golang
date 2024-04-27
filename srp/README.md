@@ -15,6 +15,7 @@ is divided into two tasks:
 In this User story we will deliver the second bullet-point to create a service that 
 will later be injected inside the new endpoint
 
+
 ## Requirements
  * Create a new service/method to find a company by name
  * Only accept company name and it should not be empty

@@ -8,12 +8,9 @@ import (
 )
 
 type Company struct {
-	// todo: SQL lib
 	dbClient *sql.DB
 }
 
-// FindCompanyWithName passes a lock by the value: type 'Company' contains 'sql.DB'
-// contains 'atomic.Int64' contains 'interface{}' which is 'sync.Locker'
 func (c *Company) FindCompanyWithName(
 	name string,
 ) ([]string, error) {
