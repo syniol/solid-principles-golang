@@ -12,7 +12,9 @@ type Company struct {
 	dbClient any
 }
 
-func (c Company) FindCompanyByName(name string) ([]string, error) {
+func (c Company) FindCompanyWithName(
+	name string,
+) ([]string, error) {
 	if utf8.RuneCountInString(name) == 0 {
 		return nil, errors.New("")
 	}

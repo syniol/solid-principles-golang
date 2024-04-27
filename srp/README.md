@@ -1,6 +1,8 @@
 # Single Responsibility Principle
 In this example we are creating a backend example service for a companies house. To demonstrate 
-the difference in code with & without utilising of Single Responsibility Principle.
+the difference in code with & without utilising of Single Responsibility Principle. There are 
+disadvantage to SRP in recent years with use of Micro service architecture, there might not be 
+a need for extraction of simple operations and you could see it will result in more code.
 
 
 ## Overview
